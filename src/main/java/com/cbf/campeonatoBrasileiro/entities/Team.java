@@ -18,3 +18,4 @@ public class Team {
     @Column
     private String stadium;
 }
+

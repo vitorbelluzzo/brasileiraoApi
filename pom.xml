@@ -36,6 +36,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+<<<<<<< HEAD
 			<artifactId>spring-boot-devtools</artifactId>
 			<optional>true</optional>
 		</dependency>
@@ -43,13 +44,21 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+=======
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+>>>>>>> c7206ede247d8247f3c469bcfa66dc0cd4dcccfc
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> c7206ede247d8247f3c469bcfa66dc0cd4dcccfc
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -60,6 +69,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+<<<<<<< HEAD
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>
@@ -76,6 +86,8 @@
 			<version>3.0.0</version>
 		</dependency>
 
+=======
+>>>>>>> c7206ede247d8247f3c469bcfa66dc0cd4dcccfc
 	</dependencies>
 
 	<build>
