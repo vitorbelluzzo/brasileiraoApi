@@ -7,7 +7,7 @@ import lombok.Data;
 @Entity(name = "teams")
 public class Team {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Column(length = 30)
     private String name;

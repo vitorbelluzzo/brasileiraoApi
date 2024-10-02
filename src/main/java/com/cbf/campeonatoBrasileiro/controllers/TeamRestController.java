@@ -2,7 +2,6 @@ package com.cbf.campeonatoBrasileiro.controllers;
 
 
 import com.cbf.campeonatoBrasileiro.dto.TeamDTO;
-import com.cbf.campeonatoBrasileiro.entities.Team;
 import com.cbf.campeonatoBrasileiro.services.TeamService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +19,7 @@ public class TeamRestController {
 
 
     @GetMapping
-    public ResponseEntity<List<Team>> getTeams() {
+    public ResponseEntity<List<TeamDTO>> getTeams() {
         return ResponseEntity.ok().body(teamService.listTeams());
     }
 
@@ -34,9 +33,8 @@ public class TeamRestController {
 
     @ApiOperation(value = "register a team")
     @PostMapping
-    public ResponseEntity<Void> registerTeam(@RequestBody TeamDTO team) {
-        teamService.RegisterTeam(team);
-        return ResponseEntity.ok().build();
+    public ResponseEntity<TeamDTO> registerTeam(@RequestBody TeamDTO team) throws Exception {
+        return ResponseEntity.ok().body(teamService.RegisterTeam(team));
 
     }
 }

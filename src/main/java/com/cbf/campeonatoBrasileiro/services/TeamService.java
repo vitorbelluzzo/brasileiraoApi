@@ -16,32 +16,48 @@ public class TeamService {
     @Autowired
     private TeamRepository teamRepository;
 
-    public void RegisterTeam(TeamDTO team) {
+    public TeamDTO RegisterTeam(TeamDTO team) throws Exception {
         Team entity = toEntity(team);
-        teamRepository.save(entity);
+        Long newId = teamRepository.count()+1;
+
+        if (team.getId() == null) {
+            entity.setId(newId);
+            entity = teamRepository.save(entity);
+            return toDto(entity);
+        } else {
+            throw new Exception("Time já cadastrado");
+        }
+
     }
 
     private Team toEntity(TeamDTO team) {
         Team entity = new Team();
-        team.setStadium(team.getStadium());
-        team.setAcronym(team.getAcronym());
-        team.setName(team.getName());
-        team.setStateUF(team.getStateUF());
+        entity.setId(team.getId());
+        entity.setStadium(team.getStadium());
+        entity.setAcronym(team.getAcronym());
+        entity.setName(team.getName());
+        entity.setStateUF(team.getStateUF());
         return entity;
     }
 
+    private TeamDTO toDto(Team entity) {
+        TeamDTO dto = new TeamDTO();
+        dto.setId(entity.getId());
+        dto.setStadium(entity.getStadium());
+        dto.setAcronym(entity.getAcronym());
+        dto.setName(entity.getName());
+        dto.setStateUF(entity.getStateUF());
+        return dto;
+    }
 
-    public List<Team> listTeams() {
-        return teamRepository.findAll().stream().map(toEntity -> toDto(entity)).collect(Collectors.toList());
+
+    public List<TeamDTO> listTeams() {
+        return teamRepository.findAll().stream().map(this::toDto).collect(Collectors.toList());
     }
-    private Object toDto() {
-        TeamDTO teamDTO = new Team();
-        teamDTO.set
-    }
+
 
     public TeamDTO getTeam(Long id) {
         return toDto(teamRepository.findById(id).get());
-
     }
 
 }
